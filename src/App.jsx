@@ -1,4 +1,4 @@
-import { createBrowserRouter, RouterProvider } from "react-router-dom"
+import { createHashRouter, RouterProvider } from "react-router-dom"
 import Signup from "./pages/Signup/Signup"
 import VendorSignup from "./pages/Signup/vendorSignup"
 import Login from "./pages/Login/Login"
@@ -35,7 +35,7 @@ import Unauthorized from "./pages/Unauthorized/Unauthorized"
 import { NotificationProvider } from "./components/Context/Notification.Context"
 function App() {
   //create an object of routes and pass it to the routerprovider
-  const routesList = createBrowserRouter([
+const routesList = createHashRouter([
     { //public routes that don't require login
       path: '/', element: <Layout />, children: [
         { index: true, element: <Home /> }, //the default page 
