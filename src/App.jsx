@@ -1,4 +1,5 @@
 import { createHashRouter, RouterProvider } from "react-router-dom"
+import { SpeedInsights } from "@vercel/speed-insights/react"
 import Signup from "./pages/Signup/Signup"
 import VendorSignup from "./pages/Signup/vendorSignup"
 import Login from "./pages/Login/Login"
@@ -92,6 +93,7 @@ const routesList = createHashRouter([
           </UserProvider>
        
         <Toaster position="top-right" />
+        <SpeedInsights />
 
         <Offline>
           <div className="p-4 rounded-lg bg-gray-200 shadow text-gray-600 font-semibold fixed bottom-8 right-8 z-50">
