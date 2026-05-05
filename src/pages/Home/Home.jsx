@@ -65,7 +65,7 @@ export default function Home() {
       <HomeSlider />
 
       <div className="container mx-auto px-4 py-8">
-        <h2 className="mb-8 mt-8 text-lg text-gray-600 font-semibold">Popular Products</h2>
+        <h2 className="mb-8 mt-8 text-lg text-gray-600 dark:text-gray-300 font-semibold">Popular Products</h2>
 
         {/* Products Grid */}
         <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6">

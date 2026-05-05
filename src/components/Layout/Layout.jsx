@@ -16,7 +16,7 @@ export default function Layout() {
 
   return (
     // Add flex container to make footer sticky
-    <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col min-h-screen transition-colors duration-300 dark:bg-slate-900 dark:text-slate-100">
       <Navbar />
       {/* Make main content grow to fill available space */}
       <main className="container mx-auto px-4 py-8 mt-20 flex-grow ">

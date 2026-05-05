@@ -27,6 +27,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
 import ProductSearch from "./pages/ProductSearch/ProductSearch"
 import Wishlist from "./pages/Wishlist/Wishlist"
 import WishlistProvider from "./components/Context/Wishlist.Context"
+import ThemeProvider from "./components/Context/Theme.Context"
 
 // import an admin dashboared component 
 import AdminDashboard from "./pages/Admin/Dashboard";
@@ -85,6 +86,7 @@ const routesList = createHashRouter([
   return (
     <>
       <QueryClientProvider client={queryClient} >
+        <ThemeProvider>
           <UserProvider>
             <CartProvider>
               <WishlistProvider>
@@ -92,6 +94,7 @@ const routesList = createHashRouter([
               </WishlistProvider>
             </CartProvider>
           </UserProvider>
+        </ThemeProvider>
        
         <Toaster position="top-right" />
         <SpeedInsights />
