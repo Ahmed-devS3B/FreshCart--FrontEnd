@@ -4,6 +4,7 @@ import { object, ref, string } from 'yup'
 import axios from 'axios';
 import { useState } from "react";
 import toast from "react-hot-toast";
+import { Helmet } from "react-helmet";
 
 export default function VendorSignup() {
     //navigation function 
