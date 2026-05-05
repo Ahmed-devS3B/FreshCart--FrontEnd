@@ -11,7 +11,7 @@
 **A modern, full-stack multi-vendor e-commerce marketplace.**  
 Built with React on the frontend and a .NET Web API on the backend, supporting Customers, Vendors, and Admins with role-based access control.
 
-[🌐 Live Demo](https://freshcart-eg.vercel.app/) • [📦 Backend Repo](https://github.com/Ahmed-devS3B/FreshCart--BackEnd) • [🐛 Report Bug](#) • [✨ Request Feature](#)
+[🌐 Live Demo](https://freshcart-eg.vercel.app/) • [📦 Backend Repo](https://github.com/Ahmed-devS3B/BackEnd--FreshCart) • [🐛 Report Bug](#) • [✨ Request Feature](#)
 
 </div>
 
