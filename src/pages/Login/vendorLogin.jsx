@@ -78,79 +78,107 @@ export default function VendorLogin() {
         onSubmit: sendDataToLogin,
     })
 
-    return <>
-        <div className="flex justify-center items-center w-full">
-            <div className="bg-white rounded-lg shadow-md p-6 w-full max-w-md mx-auto">
-                <div className="flex justify-center mb-4 border-b">
-                    <button
-                        onClick={() => navigate('/login')}
-                        className="px-4 py-2 text-slate-600 hover:text-primary-700"
-                    >
-                        Customer
-                    </button>
-                    <button
-                        className="px-4 py-2 text-primary-700 border-b-2 border-primary-700 font-medium"
-                    >
-                        Vendor
-                    </button>
-                    <button
-                        onClick={() => navigate('/admin-login')}
-                        className="px-4 py-2 text-slate-600 hover:text-primary-700"
-                    >
-                        Admin
-                    </button>
-                </div>
-                <h1 className="text-xl md:text-2xl text-slate-700 font-semibold mb-5 text-center sm:text-left">
-                    <i className="fa-solid fa-shop mr-2"></i>Vendor Log In
-                </h1>
-                <form className="space-y-4" onSubmit={formik.handleSubmit}>
-                    <div className="email">
-                        <label htmlFor="email" className="block text-sm font-medium text-slate-700 mb-1">Email Address</label>
-                        <input
-                            type="email"
-                            id="email"
-                            className="form-control w-full"
-                            placeholder="Email Address"
-                            value={formik.values.email}
-                            onChange={formik.handleChange}
-                            onBlur={formik.handleBlur}
-                            name="email"
-                        />
-                        {formik.errors.email && formik.touched.email && (
-                            <p className="text-red-500 mt-1 text-sm">*{formik.errors.email}</p>
-                        )}
-                    </div>
-
-                    <div className="password">
-                        <label htmlFor="password" className="block text-sm font-medium text-slate-700 mb-1">Password</label>
-                        <input
-                            type="password"
-                            id="password"
-                            className="form-control w-full"
-                            placeholder="Password"
-                            value={formik.values.password}
-                            onChange={formik.handleChange}
-                            onBlur={formik.handleBlur}
-                            name="password"
-                        />
-                        {formik.errors.password && formik.touched.password && (
-                            <p className="text-red-500 mt-1 text-sm">*{formik.errors.password}</p>
-                        )}
-                        {incorrectEmailPasswordError && (
-                            <p className="text-red-500 mt-1 text-sm">*{incorrectEmailPasswordError}</p>
-                        )}
-                    </div>
-
-                    <div className="pt-2">
-                        <button
-                            type="submit"
-                            className="btn w-full bg-primary-700 hover:bg-primary-800 text-white py-2 text-base font-medium transition-all duration-200 ease-in-out"
+    return (
+        <>
+            <Helmet>
+                <title>Vendor Login | FreshCart</title>
+            </Helmet>
+            <div className="flex justify-center items-center w-full py-12 px-4 bg-slate-50 dark:bg-slate-900 transition-colors duration-300">
+                <div className="bg-white dark:bg-slate-800 rounded-2xl shadow-xl p-8 w-full max-w-md mx-auto border border-slate-100 dark:border-slate-700">
+                    {/* Role Selection Tabs */}
+                    <div className="flex justify-center mb-8 bg-slate-100 dark:bg-slate-700/50 p-1 rounded-xl">
+                        <button 
+                            onClick={() => navigate('/login')} 
+                            className="flex-1 py-2 text-sm font-bold rounded-lg transition-all duration-300 text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200"
                         >
-                            Log In as Vendor
+                            Customer
+                        </button>
+                        <button 
+                            className="flex-1 py-2 text-sm font-bold rounded-lg transition-all duration-300 bg-white dark:bg-slate-800 text-primary-600 dark:text-primary-400 shadow-sm"
+                        >
+                            Vendor
+                        </button>
+                        <button 
+                            onClick={() => navigate('/admin-login')} 
+                            className="flex-1 py-2 text-sm font-bold rounded-lg transition-all duration-300 text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200"
+                        >
+                            Admin
                         </button>
                     </div>
-                </form>
+
+                    <div className="text-center mb-8">
+                        <div className="w-16 h-16 bg-primary-100 dark:bg-primary-900/30 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i className="fa-solid fa-shop text-3xl text-primary-600 dark:text-primary-400"></i>
+                        </div>
+                        <h1 className="text-2xl font-bold text-slate-800 dark:text-slate-100">Vendor Log In</h1>
+                        <p className="text-slate-500 dark:text-slate-400 mt-2 text-sm">Access your vendor dashboard</p>
+                    </div>
+
+                    <form className="space-y-6" onSubmit={formik.handleSubmit}>
+                        <div className="space-y-1">
+                            <label htmlFor="email" className="block text-sm font-semibold text-slate-700 dark:text-slate-300">Email Address</label>
+                            <div className="relative">
+                                <span className="absolute inset-y-0 left-0 pl-3 flex items-center text-slate-400">
+                                    <i className="fa-solid fa-envelope"></i>
+                                </span>
+                                <input
+                                    type="email"
+                                    id="email"
+                                    name="email"
+                                    className="form-control w-full pl-10 py-3 rounded-xl border-slate-200 dark:border-slate-700 dark:bg-slate-800/50 dark:text-slate-100 focus:ring-primary-500 focus:border-primary-500 transition-all"
+                                    placeholder="Email Address"
+                                    value={formik.values.email}
+                                    onChange={formik.handleChange}
+                                    onBlur={formik.handleBlur}
+                                />
+                            </div>
+                            {formik.errors.email && formik.touched.email && (
+                                <p className="text-red-500 text-xs font-medium pl-1">{formik.errors.email}</p>
+                            )}
+                        </div>
+
+                        <div className="space-y-1">
+                            <label htmlFor="password" className="block text-sm font-semibold text-slate-700 dark:text-slate-300">Password</label>
+                            <div className="relative">
+                                <span className="absolute inset-y-0 left-0 pl-3 flex items-center text-slate-400">
+                                    <i className="fa-solid fa-lock"></i>
+                                </span>
+                                <input
+                                    type="password"
+                                    id="password"
+                                    name="password"
+                                    className="form-control w-full pl-10 py-3 rounded-xl border-slate-200 dark:border-slate-700 dark:bg-slate-800/50 dark:text-slate-100 focus:ring-primary-500 focus:border-primary-500 transition-all"
+                                    placeholder="Password"
+                                    value={formik.values.password}
+                                    onChange={formik.handleChange}
+                                    onBlur={formik.handleBlur}
+                                />
+                            </div>
+                            {formik.errors.password && formik.touched.password && (
+                                <p className="text-red-500 text-xs font-medium pl-1">{formik.errors.password}</p>
+                            )}
+                            {incorrectEmailPasswordError && (
+                                <p className="text-red-500 text-xs font-medium pl-1">{incorrectEmailPasswordError}</p>
+                            )}
+                        </div>
+
+                        <div className="pt-2">
+                            <button
+                                type="submit"
+                                className="w-full bg-primary-600 hover:bg-primary-700 text-white py-3 rounded-xl text-lg font-bold shadow-lg hover:shadow-primary-500/30 transition-all duration-300 transform active:scale-[0.98]"
+                            >
+                                Log In
+                            </button>
+                        </div>
+                    </form>
+
+                    <div className="mt-8 pt-6 border-t border-slate-100 dark:border-slate-700 text-center">
+                        <p className="text-sm text-slate-500">
+                            Don't have a vendor account? <button onClick={() => navigate('/vendor-signup')} className="text-primary-600 dark:text-primary-400 font-bold hover:underline">Register Now</button>
+                        </p>
+                    </div>
+                </div>
             </div>
-        </div>
-    </>
+        </>
+    );
 }

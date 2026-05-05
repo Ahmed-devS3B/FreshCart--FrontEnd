@@ -81,129 +81,160 @@ export default function VendorSignup() {
         onSubmit: sendDataToRegisterVendor,
     })
 
-    return <>
-        <div className="flex justify-center items-center w-full">
-            <div className="bg-white rounded-lg shadow-md p-6 w-full max-w-md mx-auto">
-                <h1 className="text-xl md:text-2xl text-slate-700 font-semibold mb-5 text-center sm:text-left">
-                    <i className="fa-solid fa-store mr-2"></i>Vendor Registration
-                </h1>
-                <form className="space-y-4" onSubmit={formik.handleSubmit}>
-
-                    <div className="storeName">
-                        <label htmlFor="storeName" className="block text-sm font-medium text-slate-700 mb-1">Store Name</label>
-                        <input
-                            type="text"
-                            id="storeName"
-                            className="form-control w-full"
-                            placeholder="Enter Your Store Name"
-                            value={formik.values.storeName}
-                            onChange={formik.handleChange}
-                            onBlur={formik.handleBlur}
-                            name="storeName"
-                        />
-                        {formik.errors.storeName && formik.touched.storeName && (
-                            <p className="text-red-500 mt-1 text-sm">*{formik.errors.storeName}</p>
-                        )}
+    return (
+        <>
+            <Helmet>
+                <title>Vendor Registration | FreshCart</title>
+            </Helmet>
+            <div className="flex justify-center items-center w-full py-12 px-4 bg-slate-50 dark:bg-slate-900 transition-colors duration-300">
+                <div className="bg-white dark:bg-slate-800 rounded-2xl shadow-xl p-8 w-full max-w-md mx-auto border border-slate-100 dark:border-slate-700">
+                    <div className="text-center mb-8">
+                        <div className="w-16 h-16 bg-primary-100 dark:bg-primary-900/30 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i className="fa-solid fa-store text-3xl text-primary-600 dark:text-primary-400"></i>
+                        </div>
+                        <h1 className="text-2xl font-bold text-slate-800 dark:text-slate-100">Vendor Registration</h1>
+                        <p className="text-slate-500 dark:text-slate-400 mt-2 text-sm">Register your store and start selling</p>
                     </div>
 
-                    <div className="ownerName">
-                        <label htmlFor="ownerName" className="block text-sm font-medium text-slate-700 mb-1">Owner Name</label>
-                        <input
-                            type="text"
-                            id="ownerName"
-                            className="form-control w-full"
-                            placeholder="Enter Owner's Full Name"
-                            value={formik.values.ownerName}
-                            onChange={formik.handleChange}
-                            onBlur={formik.handleBlur}
-                            name="ownerName"
-                        />
-                        {formik.errors.ownerName && formik.touched.ownerName && (
-                            <p className="text-red-500 mt-1 text-sm">*{formik.errors.ownerName}</p>
-                        )}
-                    </div>
+                    <form className="space-y-5" onSubmit={formik.handleSubmit}>
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div className="space-y-1">
+                                <label htmlFor="storeName" className="block text-sm font-semibold text-slate-700 dark:text-slate-300">Store Name</label>
+                                <input
+                                    type="text"
+                                    id="storeName"
+                                    className="form-control w-full py-2.5 rounded-xl border-slate-200 dark:border-slate-700 dark:bg-slate-800/50 dark:text-slate-100 focus:ring-primary-500 focus:border-primary-500 transition-all"
+                                    placeholder="Store Name"
+                                    value={formik.values.storeName}
+                                    onChange={formik.handleChange}
+                                    onBlur={formik.handleBlur}
+                                    name="storeName"
+                                />
+                            </div>
+                            <div className="space-y-1">
+                                <label htmlFor="ownerName" className="block text-sm font-semibold text-slate-700 dark:text-slate-300">Owner Name</label>
+                                <input
+                                    type="text"
+                                    id="ownerName"
+                                    className="form-control w-full py-2.5 rounded-xl border-slate-200 dark:border-slate-700 dark:bg-slate-800/50 dark:text-slate-100 focus:ring-primary-500 focus:border-primary-500 transition-all"
+                                    placeholder="Owner Name"
+                                    value={formik.values.ownerName}
+                                    onChange={formik.handleChange}
+                                    onBlur={formik.handleBlur}
+                                    name="ownerName"
+                                />
+                            </div>
+                        </div>
+                        <div className="flex gap-4">
+                            {formik.errors.storeName && formik.touched.storeName && (
+                                <p className="text-red-500 text-[10px] font-medium flex-1">{formik.errors.storeName}</p>
+                            )}
+                            {formik.errors.ownerName && formik.touched.ownerName && (
+                                <p className="text-red-500 text-[10px] font-medium flex-1">{formik.errors.ownerName}</p>
+                            )}
+                        </div>
 
-                    <div className="email">
-                        <label htmlFor="email" className="block text-sm font-medium text-slate-700 mb-1">Business Email</label>
-                        <input
-                            type="email"
-                            id="businessEmail"
-                            className="form-control w-full"
-                            placeholder="Business Email Address"
-                            value={formik.values.businessEmail}
-                            onChange={formik.handleChange}
-                            onBlur={formik.handleBlur}
-                            name="businessEmail"
-                        />
-                        {formik.errors.businessEmail && formik.touched.businessEmail && (
-                            <p className="text-red-500 mt-1 text-sm">*{formik.errors.businessEmail}</p>
-                        )}
-                        {accountExistError && (
-                            <p className="text-red-500 mt-1 text-sm">*{accountExistError}</p>
-                        )}
-                    </div>
+                        <div className="space-y-1">
+                            <label htmlFor="businessEmail" className="block text-sm font-semibold text-slate-700 dark:text-slate-300">Business Email</label>
+                            <div className="relative">
+                                <span className="absolute inset-y-0 left-0 pl-3 flex items-center text-slate-400">
+                                    <i className="fa-solid fa-envelope"></i>
+                                </span>
+                                <input
+                                    type="email"
+                                    id="businessEmail"
+                                    className="form-control w-full pl-10 py-2.5 rounded-xl border-slate-200 dark:border-slate-700 dark:bg-slate-800/50 dark:text-slate-100 focus:ring-primary-500 focus:border-primary-500 transition-all"
+                                    placeholder="business@example.com"
+                                    value={formik.values.businessEmail}
+                                    onChange={formik.handleChange}
+                                    onBlur={formik.handleBlur}
+                                    name="businessEmail"
+                                />
+                            </div>
+                            {formik.errors.businessEmail && formik.touched.businessEmail && (
+                                <p className="text-red-500 text-xs font-medium pl-1">{formik.errors.businessEmail}</p>
+                            )}
+                            {accountExistError && (
+                                <p className="text-red-500 text-xs font-medium pl-1">{accountExistError}</p>
+                            )}
+                        </div>
 
-                    <div className="password">
-                        <label htmlFor="password" className="block text-sm font-medium text-slate-700 mb-1">Password</label>
-                        <input
-                            type="password"
-                            id="password"
-                            className="form-control w-full"
-                            placeholder="Password"
-                            value={formik.values.password}
-                            onChange={formik.handleChange}
-                            onBlur={formik.handleBlur}
-                            name="password"
-                        />
-                        {formik.errors.password && formik.touched.password && (
-                            <p className="text-red-500 mt-1 text-sm">*{formik.errors.password}</p>
-                        )}
-                    </div>
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div className="space-y-1">
+                                <label htmlFor="password" className="block text-sm font-semibold text-slate-700 dark:text-slate-300">Password</label>
+                                <input
+                                    type="password"
+                                    id="password"
+                                    className="form-control w-full py-2.5 rounded-xl border-slate-200 dark:border-slate-700 dark:bg-slate-800/50 dark:text-slate-100 focus:ring-primary-500 focus:border-primary-500 transition-all"
+                                    placeholder="Password"
+                                    value={formik.values.password}
+                                    onChange={formik.handleChange}
+                                    onBlur={formik.handleBlur}
+                                    name="password"
+                                />
+                            </div>
+                            <div className="space-y-1">
+                                <label htmlFor="confirmPassword" className="block text-sm font-semibold text-slate-700 dark:text-slate-300">Confirm</label>
+                                <input
+                                    type="password"
+                                    id="confirmPassword"
+                                    className="form-control w-full py-2.5 rounded-xl border-slate-200 dark:border-slate-700 dark:bg-slate-800/50 dark:text-slate-100 focus:ring-primary-500 focus:border-primary-500 transition-all"
+                                    placeholder="Confirm"
+                                    value={formik.values.confirmPassword}
+                                    onChange={formik.handleChange}
+                                    onBlur={formik.handleBlur}
+                                    name="confirmPassword"
+                                />
+                            </div>
+                        </div>
+                        <div className="flex gap-4">
+                            {formik.errors.password && formik.touched.password && (
+                                <p className="text-red-500 text-[10px] font-medium flex-1">{formik.errors.password}</p>
+                            )}
+                            {formik.errors.confirmPassword && formik.touched.confirmPassword && (
+                                <p className="text-red-500 text-[10px] font-medium flex-1">{formik.errors.confirmPassword}</p>
+                            )}
+                        </div>
 
-                    <div className="rePassword">
-                        <label htmlFor="rePassword" className="block text-sm font-medium text-slate-700 mb-1">Confirm Password</label>
-                        <input
-                            type="password"
-                            id="confirmPassword"
-                            className="form-control w-full"
-                            placeholder="Confirm Password"
-                            value={formik.values.confirmPassword}
-                            onChange={formik.handleChange}
-                            onBlur={formik.handleBlur}
-                            name="confirmPassword"
-                        />
-                        {formik.errors.confirmPassword && formik.touched.confirmPassword && (
-                            <p className="text-red-500 mt-1 text-sm">*{formik.errors.confirmPassword}</p>
-                        )}
-                    </div>
+                        <div className="space-y-1">
+                            <label htmlFor="phoneNumber" className="block text-sm font-semibold text-slate-700 dark:text-slate-300">Phone Number</label>
+                            <div className="relative">
+                                <span className="absolute inset-y-0 left-0 pl-3 flex items-center text-slate-400">
+                                    <i className="fa-solid fa-phone"></i>
+                                </span>
+                                <input
+                                    type="tel"
+                                    id="phoneNumber"
+                                    className="form-control w-full pl-10 py-2.5 rounded-xl border-slate-200 dark:border-slate-700 dark:bg-slate-800/50 dark:text-slate-100 focus:ring-primary-500 focus:border-primary-500 transition-all"
+                                    placeholder="Phone Number"
+                                    value={formik.values.phoneNumber}
+                                    onChange={formik.handleChange}
+                                    onBlur={formik.handleBlur}
+                                    name="phoneNumber"
+                                />
+                            </div>
+                            {formik.errors.phoneNumber && formik.touched.phoneNumber && (
+                                <p className="text-red-500 text-xs font-medium pl-1">{formik.errors.phoneNumber}</p>
+                            )}
+                        </div>
 
-                    <div className="phone">
-                        <label htmlFor="phone" className="block text-sm font-medium text-slate-700 mb-1">Phone Number</label>
-                        <input
-                            type="tel"
-                            id="phoneNumber"
-                            className="form-control w-full"
-                            placeholder="Business Phone Number"
-                            value={formik.values.phoneNumber}
-                            onChange={formik.handleChange}
-                            onBlur={formik.handleBlur}
-                            name="phoneNumber"
-                        />
-                        {formik.errors.phoneNumber && formik.touched.phoneNumber && (
-                            <p className="text-red-500 mt-1 text-sm">*{formik.errors.phoneNumber}</p>
-                        )}
-                    </div>
+                        <div className="pt-4">
+                            <button
+                                type="submit"
+                                className="w-full bg-primary-600 hover:bg-primary-700 text-white py-3 rounded-xl text-lg font-bold shadow-lg hover:shadow-primary-500/30 transition-all duration-300 transform active:scale-[0.98]"
+                            >
+                                Register Store
+                            </button>
+                        </div>
+                    </form>
 
-                    <div className="pt-2">
-                        <button
-                            type="submit"
-                            className="btn w-full bg-primary-700 hover:bg-primary-800 text-white py-2 text-base font-medium transition-all duration-200 ease-in-out"
-                        >
-                            Register as Vendor
-                        </button>
+                    <div className="mt-8 pt-6 border-t border-slate-100 dark:border-slate-700 text-center">
+                        <p className="text-sm text-slate-500">
+                            Already have a vendor account? <button onClick={() => navigate('/vendor-login')} className="text-primary-600 dark:text-primary-400 font-bold hover:underline">Log In</button>
+                        </p>
                     </div>
-                </form>
+                </div>
             </div>
-        </div>
-    </>
+        </>
+    );
 }
