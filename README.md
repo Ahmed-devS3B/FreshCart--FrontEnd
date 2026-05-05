@@ -11,7 +11,7 @@
 **A modern, full-stack multi-vendor e-commerce marketplace.**  
 Built with React on the frontend and a .NET Web API on the backend, supporting Customers, Vendors, and Admins with role-based access control.
 
-[🌐 Live Demo](https://ahmed-devs3b.github.io/FreshCart--FrontEnd/) • [📦 Backend Repo](#) • [🐛 Report Bug](#) • [✨ Request Feature](#)
+[🌐 Live Demo](https://freshcart-eg.vercel.app/) • [📦 Backend Repo](https://github.com/Ahmed-devS3B/BackEnd--FreshCart) • [🐛 Report Bug](#) • [✨ Request Feature](#)
 
 </div>
 
@@ -72,8 +72,8 @@ FreshCart is a responsive, feature-rich e-commerce platform that supports three 
 | **Real-time** | Microsoft SignalR |
 | **Authentication** | JWT (json web tokens), `jwt-decode` |
 | **Backend** | .NET Web API |
-| **Database** | SQL Server |
-| **Deployment** | GitHub Pages (Frontend), Vercel (alternative) |
+| **Database** | PostgreSQL |
+| **Deployment** | Vercel (Frontend), Railway (Backend) |
 
 ---
 
@@ -129,7 +129,7 @@ npm run deploy
 Create a `.env.local` file in the project root with the following:
 
 ```env
-VITE_API_URL=https://your-backend-url.com/api
+VITE_API_URL=https://backend-freshcart-production.up.railway.app/api
 VITE_ADMIN_EMAIL=admin@example.com
 VITE_ADMIN_PASSWORD=yourpassword
 ```
@@ -212,9 +212,14 @@ This app is configured for GitHub Pages using `HashRouter` from React Router DOM
 
 A custom `404.html` in the `public/` folder and a redirect script in `index.html` handle page refreshes correctly.
 
-Live URL:
+GitHub Pages URL:
 ```
 https://ahmed-devs3b.github.io/FreshCart--FrontEnd/
+```
+
+Vercel URL:
+```
+https://freshcart-eg.vercel.app/
 ```
 
 ---
